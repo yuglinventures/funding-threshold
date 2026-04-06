@@ -5,7 +5,7 @@
 
 ## Project Overview
 - **Created**: 2026-03-31
-- **Status**: Day 1 — Spec complete, ready to build
+- **Status**: Day 6 — Landing page built, Loops.so wired, ready to deploy
 - **Phase**: Week 2 (Build)
 
 ## Problem Statement
@@ -77,15 +77,16 @@ Inherits from ~/ventures/.claude/skills/tech-stack.md. Overrides:
 | 2026-03-31 | No auth for MVP | Organizer gets private manage link via email. Reduces friction, sufficient for validation. |
 | 2026-03-31 | No platform fee UI in Phase 1 | Validate conversion first; add fee in Phase 2 once demand is confirmed. |
 | 2026-03-31 | Cron handles threshold capture | Simpler than real-time webhook math; Phase 2 adds immediate capture on Nth pledge. |
+| 2026-04-05 | Built landing page before core product | Running fake-door test first to validate demand before building Supabase/Stripe backend. |
+| 2026-04-05 | Used V0.dev for landing page generation | Faster than writing from scratch; V0 output was clean enough to integrate directly with minor modifications. |
+| 2026-04-05 | Loops.so wired via Server Action | Keeps API call server-side; no API key exposed to client. `NEXT_PUBLIC_LOOPS_FORM_ID` is public (form ID only, not secret). |
 
 ## Known Issues
-None yet.
+None.
 
 ## What's Next
-Begin Phase 1 build. Start with [P1-1] project setup.
-External dependencies to create before building:
-- Supabase project (supabase.com)
-- Stripe account (stripe.com)
-- Loops.so account (loops.so)
-- Vercel + GitHub (vercel.com)
-- PostHog project (posthog.com)
+1. Add `NEXT_PUBLIC_LOOPS_FORM_ID` to `.env.local` (Loops.so account exists)
+2. Install `posthog-js` and add tracking events (page view, CTA click, signup success/failure)
+3. Install `@sentry/nextjs` and add error boundary around email forms
+4. Deploy to Vercel (`run prompt-first-deploy`)
+5. Then begin [P1-1] project setup (Supabase schema) to build the actual product
