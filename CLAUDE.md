@@ -5,9 +5,9 @@
 
 ## Project Overview
 - **Created**: 2026-03-31
-- **Status**: Day 7 — Deployed to production. PostHog + Loops.so verified working.
+- **Status**: Day 7 — Deployed. PostHog + Loops.so verified. Reddit organic blocked by spam filter; moving to Reddit Ads.
 - **Live URL**: https://funding-threshold.vercel.app
-- **Phase**: Week 2 (Build)
+- **Phase**: Week 2 (Marketing)
 
 ## Problem Statement
 Groups of people regularly want to do something together — attend an event, fund a local project, book a venue, run a group buy — but organizers can't collect money or commitments until they know enough people are in. This chicken-and-egg problem means good ideas stall: people won't commit without knowing others will, and organizers can't move forward without commitments. There's no modern, lightweight tool for conditional group payments — where money is only collected once a critical threshold is reached — outside of GoFundMe (which lacks the threshold mechanic) or Kickstarter (which is too heavyweight for informal group coordination).
@@ -81,11 +81,14 @@ Inherits from ~/ventures/.claude/skills/tech-stack.md. Overrides:
 | 2026-04-05 | Built landing page before core product | Running fake-door test first to validate demand before building Supabase/Stripe backend. |
 | 2026-04-05 | Used V0.dev for landing page generation | Faster than writing from scratch; V0 output was clean enough to integrate directly with minor modifications. |
 | 2026-04-05 | Loops.so wired via Server Action | Keeps API call server-side; no API key exposed to client. `NEXT_PUBLIC_LOOPS_FORM_ID` is public (form ID only, not secret). |
+| 2026-04-06 | Skipped Sentry DSN for now | Fake-door phase; app won't break without it. Add DSN to Vercel env vars if errors appear post-launch. |
+| 2026-04-06 | Skip organic Reddit, go straight to paid ads | New account karma too low — posts blocked by spam filter. Reddit Ads bypass this entirely. |
 
 ## Known Issues
 None.
 
 ## What's Next
-1. Run ads to drive traffic (`run prompt-marketing`)
+1. Launch Reddit Ads ($50 budget) — 3 ad variations ready, target r/travel, r/camping, r/festivals
 2. Collect metrics for 7–14 days against kill thresholds
-3. Then begin [P1-1] project setup (Supabase schema) to build the actual product
+3. Run `prompt-decision` once enough data collected
+4. If GO: begin [P1-1] project setup (Supabase schema)
