@@ -5,7 +5,8 @@
 
 ## Project Overview
 - **Created**: 2026-03-31
-- **Status**: Day 6 — Landing page built, Loops.so wired, ready to deploy
+- **Status**: Day 7 — Deployed to production. PostHog + Loops.so verified working.
+- **Live URL**: https://funding-threshold.vercel.app
 - **Phase**: Week 2 (Build)
 
 ## Problem Statement
@@ -85,8 +86,6 @@ Inherits from ~/ventures/.claude/skills/tech-stack.md. Overrides:
 None.
 
 ## What's Next
-1. Add `NEXT_PUBLIC_LOOPS_FORM_ID` to `.env.local` (Loops.so account exists)
-2. Install `posthog-js` and add tracking events (page view, CTA click, signup success/failure)
-3. Install `@sentry/nextjs` and add error boundary around email forms
-4. Deploy to Vercel (`run prompt-first-deploy`)
-5. Then begin [P1-1] project setup (Supabase schema) to build the actual product
+1. Run ads to drive traffic (`run prompt-marketing`)
+2. Collect metrics for 7–14 days against kill thresholds
+3. Then begin [P1-1] project setup (Supabase schema) to build the actual product
