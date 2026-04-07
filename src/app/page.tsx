@@ -3,6 +3,7 @@
 import { useState, useTransition } from "react"
 import posthog from "posthog-js"
 import { subscribeToWaitlist } from "./actions"
+import { ErrorBoundary } from "./error-boundary"
 
 function EmailForm({
   placeholder = "you@email.com",
@@ -105,10 +106,12 @@ export default function ThresholdLanding() {
             Create a campaign, share the link. Cards are only charged when your group hits the goal — otherwise every hold is released automatically.
           </p>
           <div className="mb-3">
-            <EmailForm
-              inputClassName="border-zinc-200 bg-white focus:border-emerald-500 focus:ring-emerald-500/20"
-              buttonClassName="bg-emerald-600 text-white hover:bg-emerald-700"
-            />
+            <ErrorBoundary>
+              <EmailForm
+                inputClassName="border-zinc-200 bg-white focus:border-emerald-500 focus:ring-emerald-500/20"
+                buttonClassName="bg-emerald-600 text-white hover:bg-emerald-700"
+              />
+            </ErrorBoundary>
           </div>
           <p className="text-sm text-zinc-500">Free to try · No spam · Unsubscribe anytime</p>
         </div>
@@ -245,10 +248,12 @@ export default function ThresholdLanding() {
             Join the waitlist and be first to know when Threshold launches.
           </p>
           <div className="mb-3">
-            <EmailForm
-              inputClassName="border-emerald-500 bg-white/10 text-white placeholder:text-emerald-200 focus:border-white focus:ring-white/20"
-              buttonClassName="bg-white text-emerald-700 hover:bg-emerald-50"
-            />
+            <ErrorBoundary>
+              <EmailForm
+                inputClassName="border-emerald-500 bg-white/10 text-white placeholder:text-emerald-200 focus:border-white focus:ring-white/20"
+                buttonClassName="bg-white text-emerald-700 hover:bg-emerald-50"
+              />
+            </ErrorBoundary>
           </div>
           <p className="text-sm text-emerald-200">Free to try · No spam · Unsubscribe anytime</p>
         </div>

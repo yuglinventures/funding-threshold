@@ -9,6 +9,7 @@
     "lint": "eslint"
   },
   "dependencies": {
+    "@sentry/nextjs": "^10.47.0",
     "next": "16.2.2",
     "posthog-js": "^1.364.7",
     "react": "19.2.4",
