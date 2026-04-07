@@ -1,6 +1,7 @@
 "use client"
 
 import { useState, useTransition } from "react"
+import posthog from "posthog-js"
 import { subscribeToWaitlist } from "./actions"
 
 function EmailForm({
@@ -27,8 +28,10 @@ function EmailForm({
       if (result.success) {
         setSuccess(true)
         setEmail("")
+        posthog.capture("waitlist_signup_success")
       } else {
         setError(result.error ?? "Something went wrong.")
+        posthog.capture("waitlist_signup_error", { error: result.error })
       }
     })
   }
