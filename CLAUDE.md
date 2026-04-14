@@ -5,9 +5,9 @@
 
 ## Project Overview
 - **Created**: 2026-03-31
-- **Status**: Day 7 — Deployed. PostHog + Loops.so verified. Reddit organic blocked by spam filter; moving to Reddit Ads.
+- **Status**: KILLED — Apr 13, 2026
 - **Live URL**: https://funding-threshold.vercel.app
-- **Phase**: Week 2 (Marketing)
+- **Phase**: KILLED after fake-door test (Week 2)
 
 ## Problem Statement
 Groups of people regularly want to do something together — attend an event, fund a local project, book a venue, run a group buy — but organizers can't collect money or commitments until they know enough people are in. This chicken-and-egg problem means good ideas stall: people won't commit without knowing others will, and organizers can't move forward without commitments. There's no modern, lightweight tool for conditional group payments — where money is only collected once a critical threshold is reached — outside of GoFundMe (which lacks the threshold mechanic) or Kickstarter (which is too heavyweight for informal group coordination).
@@ -87,8 +87,19 @@ Inherits from ~/ventures/.claude/skills/tech-stack.md. Overrides:
 ## Known Issues
 None.
 
-## What's Next
-1. Launch Reddit Ads ($50 budget) — 3 ad variations ready, target r/travel, r/camping, r/festivals
-2. Collect metrics for 7–14 days against kill thresholds
-3. Run `prompt-decision` once enough data collected
-4. If GO: begin [P1-1] project setup (Supabase schema)
+## Post-Mortem
+
+**Final status**: Killed after fake-door test (Week 2 — never built core product)
+
+**Lesson learned**: People don't care enough to have a feature where you don't need to pay until everyone commits — they'd rather just trust their friends.
+
+**Total time spent**: ~13 days (Mar 31 – Apr 13, 2026)
+
+**Total money spent**: ~$74.98 (~$15 infrastructure/domain + ~$59.98 Reddit Ads)
+
+**Validation data**: 75,753 ad impressions, 2.157% CTR, 60 landing page visitors, 0 real signups (0% CVR). Ads proved problem resonance; zero conversions proved no urgency.
+
+**What to do differently**:
+- The trust mechanic is the missing piece — the product assumes people don't trust their friends to pay, but most group-organizer audiences have existing social trust and don't need a formal commitment system
+- Next time, target a use case where strangers or weak-tie groups are involved (e.g., neighborhood projects, community fundraising, group buys between acquaintances) — trust is low and threshold enforcement has real value
+- Mark test accounts in Loops.so before running ads so real signups are immediately distinguishable from your own
